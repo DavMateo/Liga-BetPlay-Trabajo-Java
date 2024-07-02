@@ -72,10 +72,14 @@ public class Controlador {
                     break;
                     
                 } else {
-                    System.out.println("ACCESO DENEGADO. Inténtelo de nuevo.");
+                    System.out.println("ACCESO DENEGADO: La contraseña no coincide. Inténtelo de nuevo.");
                     System.exit(0);
-                    break;
+                    return false;
                 }
+                
+            } else {
+                System.out.println("ACCESO DENEGADO: El correo electrónico no está registrado. Inténtelo de nuevo.");
+                return false;
             }
         }
         
@@ -260,4 +264,9 @@ public class Controlador {
             return "Error";
         }
     }
+    
+    
+    
+    // CREANDO LAS FUNCIONES PARA LA CLASE "viewCasosDeUso"
+    
 }

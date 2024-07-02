@@ -18,6 +18,26 @@ import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
  * @author mateo
  */
 public class viewLogin {
+    // Definiendo los atributos necesarios
+    private boolean resValCred;
+    
+    
+    // Creando los constructores de la clase
+    public viewLogin() {
+        
+    }
+    
+    
+    // Definiendo los getter y setter para "resValCred"
+    public boolean getResValCred() {
+        return resValCred;
+    }
+    public void setResValCred(boolean resValCred) {
+        this.resValCred = resValCred;
+    }
+    
+    
+    // CREANDO LOS MÉTODOS DE LA CLASE
     // Definiendo la función de inicio según si es inicio o registro
     public void start(int check) {
         // Declarando las variables necesarias
@@ -131,7 +151,8 @@ public class viewLogin {
             
             
             // Verificando que las credenciales coincidan con algún registro previamente guardado
-            controlador.validarCredenciales(emailLogin, contraseniaLogin);
+            boolean resultBool = controlador.validarCredenciales(emailLogin, contraseniaLogin);
+            this.resValCred = resultBool;
             
             
             
