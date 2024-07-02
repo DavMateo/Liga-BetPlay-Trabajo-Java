@@ -2,11 +2,11 @@ package com.betplay.ligabetplay.model.entity;
 
 public class Usuario {
     // Definiendo los atributos necesarios
-    private int id;
+    private String id;
     private String nombre;
     private String email;
     private String contrasenia;
-    private String rol;
+    private String rolUser;
     
     
     // Definiendo los constructores de la clase
@@ -14,12 +14,20 @@ public class Usuario {
         
     }
     
+    public Usuario(String id, String nombre, String email, String contrasenia, String rolUser) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.contrasenia = contrasenia;
+        this.rolUser = rolUser;
+    }
+    
     
     // Definiendo los getter y setter de "id"
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     
@@ -52,11 +60,11 @@ public class Usuario {
     
     
     // Definiendo los getter y setter de "rol"
-    public String getRol() {
-        return rol;
+    public String getRolUser() {
+        return rolUser;
     }
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setRolUser(String rolUser) {
+        this.rolUser = rolUser;
     }
 
 }

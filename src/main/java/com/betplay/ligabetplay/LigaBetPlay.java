@@ -7,6 +7,8 @@ package com.betplay.ligabetplay;
 // Importando las dependencias necesarias
 import java.util.Scanner;
 import com.betplay.ligabetplay.view.viewLogin;
+import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
+import com.betplay.ligabetplay.model.AlmacenarInfo;
 
 
 /**
@@ -16,8 +18,13 @@ import com.betplay.ligabetplay.view.viewLogin;
 public class LigaBetPlay {
 
     public static void main(String[] args) {
+        // Definiendo las variables necesarias
+        int countError = 0;
+        int errConfirm = 0;
+        
         // Creando las instancias necesarias
         Scanner sc = new Scanner(System.in);
+        viewLogin login = new viewLogin();
         
         
         // Creando el logotipo al iniciar el menú principal
@@ -35,29 +42,47 @@ public class LigaBetPlay {
         System.out.println("1. Iniciar Sesion");
         System.out.println("2. Registrarse");
         
+        
         // Capturando la opción elejida por el usuario
         System.out.print("Elija una opción: ");
         int opcionUsuario = sc.nextInt();
-        sc.nextLine();  // Limpiar buffer
+        sc.nextLine();  //Limpiar el buffer
         
         
-        viewLogin login = new viewLogin();
-        login.start(2);
-        /*
         // Actuando según el tipo de opción elegida por el usuario
-        switch(opcionUsuario) {
-            case 1:
-                
-                
-                break;
+        do {
+            try {
+                switch(opcionUsuario) {
+                    case 1:
+                        login.start(1);
+                        System.out.println("Cerrando sesión... ¡Gracias por usar nuestro software!");
+                        break;
+
+                    case 2:
+                        login.start(2);
+                        System.out.println("\n¡Usuario registrado correctamente!");
+                        System.out.println("¡Gracias por usar nuestro software!");
+                        break;
+                        
+                        // Capturando error por ingreso de opción de login del usuario
+                    default:
+                        throw new ErrIncorrectInputUser("Opción no válida");
+                }
+
+            } catch(ErrIncorrectInputUser e) {
+                if(countError == 6) {
+                    System.err.println("Algo ha ido mal al seleccionar su opción de inicio de sesión. Inténtelo de nuevo más tarde o comuníquese con un administrador.");
+                    System.exit(0);
+                    break;
+                    
+                } else {
+                    countError++;
+                    System.out.println("Error: La opción ingresada es inválida. Inténtelo de nuevo.");
+                    continue;
+                }
+            }
             
-            case 2:
-                
-                break;
-            
-            default:
-                
-        }
-        */
+            break;
+        } while(true);
     }
 }
