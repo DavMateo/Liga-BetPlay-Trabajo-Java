@@ -24,7 +24,6 @@ public class AlmacenarInfo {
     public AlmacenarInfo() {
         // Definiendo las instancias necesarias
         lstUsuario = new ArrayList<>();
-        Usuario usuario = new Usuario();
         Controlador controller = new Controlador();
         
         

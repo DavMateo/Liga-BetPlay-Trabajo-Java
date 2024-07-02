@@ -7,6 +7,8 @@ package com.betplay.ligabetplay.view;
 // Importando las clases necesarias
 import java.util.Scanner;
 import java.text.MessageFormat;
+import java.util.List;
+import java.util.ArrayList;
 import com.betplay.ligabetplay.model.entity.Usuario;
 import com.betplay.ligabetplay.controller.Controlador;
 import com.betplay.ligabetplay.model.AlmacenarInfo;
@@ -20,11 +22,12 @@ import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
 public class viewLogin {
     // Definiendo los atributos necesarios
     private boolean resValCred;
+    private List<AlmacenarInfo> lstInfoUserSelect;
     
     
     // Creando los constructores de la clase
     public viewLogin() {
-        
+        lstInfoUserSelect = new ArrayList<>();
     }
     
     
@@ -35,6 +38,16 @@ public class viewLogin {
     public void setResValCred(boolean resValCred) {
         this.resValCred = resValCred;
     }
+    
+    
+    // Definiendo los getter y setter para "lstInfoUserSelect"
+    public List<AlmacenarInfo> getLstInfoUserSelect() {
+        return lstInfoUserSelect;
+    }
+    public void setLstInfoUserSelect(AlmacenarInfo lstInfoUserSelect) {
+        this.lstInfoUserSelect.add(lstInfoUserSelect);
+    }
+    
     
     
     // CREANDO LOS MÉTODOS DE LA CLASE
@@ -61,12 +74,12 @@ public class viewLogin {
         Scanner sc = new Scanner(System.in);
         Usuario infoUsuario = new Usuario();
         Controlador controlador = new Controlador();
-        AlmacenarInfo infoUser = new AlmacenarInfo();
         
         
         // Efectuando el registro o inicio de sesión de un usuario
         if(check == 1) {
             // Imprimiendo título del menú actual
+            System.out.println("\n");
             System.out.println(" _____      _      _         _   _                      _       ");
             System.out.println("|_   _|    (_)    (_)       | | | |                    (_)      ");
             System.out.println("  | | _ __  _  ___ _  ___   | | | |___ _   _  __ _ _ __ _  ___  ");
@@ -153,6 +166,7 @@ public class viewLogin {
             // Verificando que las credenciales coincidan con algún registro previamente guardado
             boolean resultBool = controlador.validarCredenciales(emailLogin, contraseniaLogin);
             this.resValCred = resultBool;
+            System.out.println(controlador.getRolUsuario());
             
             
             

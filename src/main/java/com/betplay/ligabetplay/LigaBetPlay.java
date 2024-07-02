@@ -5,9 +5,12 @@
 package com.betplay.ligabetplay;
 
 // Importando las dependencias necesarias
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 import com.betplay.ligabetplay.view.viewLogin;
 import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
+import com.betplay.ligabetplay.view.viewCasosDeUso;
 import com.betplay.ligabetplay.model.AlmacenarInfo;
 
 
@@ -16,6 +19,12 @@ import com.betplay.ligabetplay.model.AlmacenarInfo;
  * @author mateo
  */
 public class LigaBetPlay {
+    // Definiendo los atributos necesarios
+    private List<AlmacenarInfo> lstSaveInfoUser;
+    
+    
+    // Definiendo los 
+
 
     public static void main(String[] args) {
         // Definiendo las variables necesarias
@@ -26,6 +35,8 @@ public class LigaBetPlay {
         // Creando las instancias necesarias
         Scanner sc = new Scanner(System.in);
         viewLogin login = new viewLogin();
+        viewCasosDeUso casosUso = new viewCasosDeUso();
+        
         
         
         // Creando el logotipo al iniciar el menú principal
@@ -59,38 +70,7 @@ public class LigaBetPlay {
                         login.start(1);
                         
                         if(login.getResValCred()) {
-                            // Mostrando el submenu de los casos de uso
-                            System.out.println("\n\n========================");
-                            System.out.println(
-                                "1. Gestión de Equipos\n" +
-                                "2. Gestión de Jugadores\n" +
-                                "3. Programación de Partidos\n" +
-                                "4. Registro de Resultados\n" +
-                                "5. Visualización de Estadísticas\n" +
-                                "6. Gestión de Noticias y Comunicados\n" +
-                                "7. Gestión de Entrenadores\n" +
-                                "8. Gestión de Árbitros\n" +
-                                "9. Gestión de Estadios\n" +
-                                "10. Ventas de Entradas\n" +
-                                "11. Gestión de Patrocinios\n" +
-                                "12. Generación de Informes\n" +
-                                "13. Gestión de Incidentes y Sanciones\n" +
-                                "14. Consulta de Calendario de Partidos\n" +
-                                "15. Gestión de Medios de Comunicación\n" +
-                                "16. Gestión de Lesiones de Jugadores\n" +
-                                "17. Gestión de Entrenamientos\n" +
-                                "18. Seguimiento de Rendimiento de Jugadores\n" +
-                                "19. Gestión de Transferencias de Jugadores\n" +
-                                "20. Gestión de Equipamiento\n" +
-                                "21. Gestión de Convocatorias de Jugadores\n" +
-                                "22. Gestión de Premios y Reconocimientos\n" +
-                                "23. Gestión de Usuarios y Roles\n" +
-                                "24. Gestión de Patrocinadores y Publicidad\n" +
-                                "25. Gestión de Relaciones Públicas"
-                            );
-                            System.out.println("Elija una opción: ");
-                            opUser = sc.nextInt();
-                            sc.nextLine();  //Limpiar buffer
+                            
                             
                         } else {
                             System.out.println("Error: Las credenciales no coinciden con la base de datos. Inténtelo de nuevo.");
@@ -104,6 +84,7 @@ public class LigaBetPlay {
                         System.out.println("Cerrando sesión... ¡Gracias por usar nuestro software!");
                         break;
 
+                        
                     case 2:
                         login.start(2);
                         System.out.println("\n¡Usuario registrado correctamente!");
