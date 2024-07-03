@@ -27,10 +27,22 @@ import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
  * @author mateo
  */
 public class Controlador {
-        
+    // Declarando los atributos necesarios
+    private String rolUsuario;
+    
+  
     // Definiendo los constructores de la clase
     public Controlador() {
         
+    }
+    
+    
+    // Definiendo los getter y setter de "rolUsuario"
+    public String getRolUsuario() {
+        return rolUsuario;
+    }
+    public void setRolUsuario(String rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
     
     
@@ -74,21 +86,23 @@ public class Controlador {
                             infoUser.getLstUsuario().get(i).getNombre()
                         )
                     );
-                    break;
+                    this.rolUsuario = infoUser.getLstUsuario().get(i).getRolUser();
+                    
+                    return true;
                     
                 } else {
                     System.out.println("ACCESO DENEGADO: La contraseña no coincide. Inténtelo de nuevo.");
                     System.exit(0);
-                    return false;
+                    continue;
                 }
                 
             } else {
                 System.out.println("ACCESO DENEGADO: El correo electrónico no está registrado. Inténtelo de nuevo.");
-                return false;
+                continue;
             }
         }
         
-        return true;
+        return false;
     }
     
     
