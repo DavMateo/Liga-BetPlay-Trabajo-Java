@@ -6,6 +6,7 @@ package com.betplay.ligabetplay.controller;
 
 // Importando las clases necesarias
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.lang.StringBuilder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,6 +14,9 @@ import java.util.regex.PatternSyntaxException;
 import java.text.MessageFormat;
 import java.util.UUID;
 import java.util.Scanner;
+
+import com.betplay.ligabetplay.model.entity.Equipo;
+import com.betplay.ligabetplay.model.entity.Jugador;
 import com.betplay.ligabetplay.model.entity.Usuario;
 import com.betplay.ligabetplay.model.AlmacenarInfo;
 import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
@@ -26,7 +30,7 @@ public class Controlador {
     // Declarando los atributos necesarios
     private String rolUsuario;
     
-    
+  
     // Definiendo los constructores de la clase
     public Controlador() {
         
@@ -284,4 +288,13 @@ public class Controlador {
     
     // CREANDO LAS FUNCIONES PARA LA CLASE "viewCasosDeUso"
     
+
+    // CREANDO EL HASTABLE PARA LA CLASE "viewEquipo"
+
+    public Hashtable <String, Equipo> Equipos = new Hashtable<>();
+
+    // CRENADO EL HASTABLE PARA LA CLASE "viewJugador"
+
+    public Hashtable <String, Jugador> Jugadores = new Hashtable<>();
+
 }
