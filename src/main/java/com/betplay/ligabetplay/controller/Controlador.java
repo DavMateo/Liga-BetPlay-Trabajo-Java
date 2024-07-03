@@ -17,6 +17,7 @@ import java.util.Scanner;
 
 import com.betplay.ligabetplay.model.entity.Equipo;
 import com.betplay.ligabetplay.model.entity.Jugador;
+import com.betplay.ligabetplay.model.entity.Partido;
 import com.betplay.ligabetplay.model.entity.Usuario;
 import com.betplay.ligabetplay.model.AlmacenarInfo;
 import com.betplay.ligabetplay.controller.errores.ErrIncorrectInputUser;
@@ -293,8 +294,12 @@ public class Controlador {
 
     public Hashtable <String, Equipo> Equipos = new Hashtable<>();
 
-    // CRENADO EL HASTABLE PARA LA CLASE "viewJugador"
+    // CREANDO EL HASTABLE PARA LA CLASE "viewJugador"
 
     public Hashtable <String, Jugador> Jugadores = new Hashtable<>();
+
+    // CREANDO EL HASTABLE PARA LA CLASE "viewPartido"
+
+    public Hashtable <String, Partido> Partidos = new Hashtable<>();
 
 }

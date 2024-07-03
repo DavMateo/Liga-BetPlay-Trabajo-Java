@@ -14,7 +14,16 @@ public class viewEquipo {
 
         while (true) {
             System.out.println("-------------------------");
-            System.out.println("EQUIPOS\n");
+            System.out.println("\n" + //
+                                "  ______            _                 \n" + //
+                                " |  ____|          (_)                \n" + //
+                                " | |__   __ _ _   _ _ _ __   ___  ___ \n" + //
+                                " |  __| / _` | | | | | '_ \\ / _ \\/ __|\n" + //
+                                " | |___| (_| | |_| | | |_) | (_) \\__ \\\n" + //
+                                " |______\\__, |\\__,_|_| .__/ \\___/|___/\n" + //
+                                "           | |       | |              \n" + //
+                                "           |_|       |_|              \n" + //
+                                "\n");
             System.out.println("1. Agregar Equipo\n");
             System.out.println("2. Actualizar Equipo\n");
             System.out.println("3. Eliminar Equipo");
@@ -31,7 +40,7 @@ public class viewEquipo {
                 Equipo equipo = new Equipo();
                 System.out.println("Ingrese el codigo del equipo:\n");
                 String codigoEquipo = scanner.nextLine();
-                System.out.println("Ingrese Nombre del equipo:\n");
+                System.out.println("Ingrese el nombre del equipo:\n");
                 equipo.setNombre(scanner.nextLine());
                 System.out.println("Ingrese la ciudad:\n");
                 equipo.setCiudad(scanner.nextLine());
@@ -57,7 +66,7 @@ public class viewEquipo {
                     equipoActualizar.setNombre(scanner.nextLine());
                     System.out.println("Ingrese la nueva ciudad del equipo (actual: " + equipoActualizar.getCiudad() + "):");
                     equipoActualizar.setCiudad(scanner.nextLine());
-                    System.out.println("Ingres el nuevo estadio del equipo (actual:"+ equipoActualizar.getEstadio() + "):");
+                    System.out.println("Ingrese el nuevo estadio del equipo (actual:"+ equipoActualizar.getEstadio() + "):");
                     equipoActualizar.setEstadio(scanner.nextLine());
                     System.out.println("Ingrese el nuevo nombre del entrenador (actual:" + equipoActualizar.getEntrenador() + "):");
                     controlador.Equipos.put(codigoActualizar, equipoActualizar);
@@ -82,8 +91,8 @@ public class viewEquipo {
 
                 case 4:
                     // Salir del progama
-                System.out.println("\nPrograma finalizado");
-                break;
+                System.out.println("Volviendo al menu Principal");
+                return;
 
                 default:
                 System.out.println("Opcion no valida o fuera de rango");

@@ -13,11 +13,20 @@ public class viewJugador {
 
         while (true) {
             System.out.println("---------------------");
-            System.out.println("JUGADORES\n");
+            System.out.println("\n" + //
+                                "       _                       _                     \n" + //
+                                "      | |                     | |                    \n" + //
+                                "      | |_   _  __ _  __ _  __| | ___  _ __ ___  ___ \n" + //
+                                "  _   | | | | |/ _` |/ _` |/ _` |/ _ \\| '__/ _ \\/ __|\n" + //
+                                " | |__| | |_| | (_| | (_| | (_| | (_) | | |  __/\\__ \\\n" + //
+                                "  \\____/ \\__,_|\\__, |\\__,_|\\__,_|\\___/|_|  \\___||___/\n" + //
+                                "                __/ |                                \n" + //
+                                "               |___/                                 \n" + //
+                                "\n");
             System.out.println("1. Agregar Jugador\n");
             System.out.println("2. Actualizar Jugador\n");
             System.out.println("3. Eliminar Jugador\n");
-            System.out.println("4. Salir");
+            System.out.println("4. Volver");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -89,8 +98,8 @@ public class viewJugador {
 
                 case 4:
                     // Salir del Progama
-                System.out.println("\nPrograma finalizado");
-                break;
+                System.out.println("Volviendo al menu Principal");
+                return;
 
                 default:
                 System.out.println("Opcion no valida o fuera de rango");
